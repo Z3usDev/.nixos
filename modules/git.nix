@@ -1,11 +1,6 @@
 { pkgs, ... }:
 
 {
-  home.packages = with pkgs; [
-    git
-    gh
-  ];
-
   programs.git = {
     enable = true;
 
@@ -17,5 +12,19 @@
         email = "lukasschnellmann@gmail.com";
       };
     };
+  };
+
+  programs.gh = {
+    enable = true;
+
+    settings = {
+      git_protocol = "ssh";
+      editor = "zed";
+      prompt = "enabled";
+    };
+
+    extensions = with pkgs; [
+      gh-dash
+    ];
   };
 }
