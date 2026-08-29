@@ -11,8 +11,6 @@
 
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.initrd.luks.devices."luks-428b3e1c-f1fe-4502-875d-13da1c7ec348".device =
-    "/dev/disk/by-uuid/428b3e1c-f1fe-4502-875d-13da1c7ec348";
 
   # Networking.
   networking.hostName = "yokai"; # Define your hostname.

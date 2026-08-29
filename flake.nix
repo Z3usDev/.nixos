@@ -12,22 +12,24 @@
     stylix.url = "github:danth/stylix";
   };
 
-  outputs = {
-    nixpkgs,
-    home-manager,
-    nixos-hardware,
-    stylix,
-    ...
-  }@inputs: {
-    nixosConfigurations.yokai = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      specialArgs = { inherit inputs; };
-      modules = [
-        ./configuration.nix
-        home-manager.nixosModules.home-manager
-        nixos-hardware.nixosModules.framework-amd-ai-300-series
-        inputs.stylix.nixosModules.stylix
-      ];
+  outputs =
+    {
+      nixpkgs,
+      home-manager,
+      nixos-hardware,
+      stylix,
+      ...
+    }@inputs:
+    {
+      nixosConfigurations.yokai = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = { inherit inputs; };
+        modules = [
+          ./configuration.nix
+          nixos-hardware.nixosModules.framework-amd-ai-300-series
+          home-manager.nixosModules.home-manager
+          inputs.stylix.nixosModules.stylix
+        ];
+      };
     };
-  };
 }
