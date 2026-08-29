@@ -33,7 +33,7 @@
       nixosConfigurations.yokai = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };
-        modules = commonModules ++ [ ./hosts/framework-13-pro/default.nix ];
+        modules = commonModules ++ [ ./hosts/framework-13-pro ];
       };
     };
 }
